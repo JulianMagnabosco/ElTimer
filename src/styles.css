@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.light-mode {
+  background-color: #e4e4e4;
+  color: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: #4949493a;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+td{
+  border: #ffffff79 1px solid;
+  padding: 0.5rem;
+}
+tr:nth-child(even){
+  background: #41414131;
+}
+tr:nth-child(odd){
+  background: #00000013;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
