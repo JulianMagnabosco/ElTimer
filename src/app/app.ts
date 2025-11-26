@@ -50,6 +50,7 @@ export class App implements OnInit{
   }
 
   changeLightMode() {
+    if (typeof document === 'undefined') return;
     this.lightMode = !this.lightMode;
     if (this.lightMode) {
       document.body.classList.add('light-mode');

@@ -2,31 +2,39 @@
   <a>
     ElTimer
   </a>
-  <button (click)="changeLightMode()" >
+  <button (click)="changeLightMode()">
     {{lightMode?"Light": "Dark"}} Mode
   </button>
 </nav>
 
-<div class="container">
-  <h1>
-    {{myTime() | date:'yyyy MMM dd, HH:mm:ss'}}
-  </h1>
-  <h4>
-    {{myTimezone() }}
-  </h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Timezone</th>
-        <th>Time</th>
-      </tr>
-    </thead>
-    <tbody>@for (locatedTime of locatedTimes(); track $index) {
-      <tr>
-        <td>{{locatedTime.timezone}}</td>
-        <td>{{locatedTime.value | date:'yyyy MMM dd, HH:mm:ss'}}</td>
-      </tr>
-      }
-    </tbody>
-  </table>
+<div class="main">
+  <div class="add">
+
+  </div>
+  <div class="container">
+    <h1>
+      {{myTime() | date:'yyyy MMM dd, HH:mm:ss'}}
+    </h1>
+    <h4>
+      {{myTimezone() }}
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Timezone</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>@for (locatedTime of locatedTimes(); track $index) {
+        <tr>
+          <td>{{locatedTime.timezone}}</td>
+          <td>{{locatedTime.value | date:'yyyy MMM dd, HH:mm:ss'}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="add">
+
+  </div>
 </div>
