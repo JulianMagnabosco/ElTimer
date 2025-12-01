@@ -4,50 +4,17 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [DatePipe],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit{
   lightMode: boolean=true;
-  myTime = signal(new Date());
-  myTimezone = signal("Not found");
-
-  locatedTimes = signal<{ timezone:string, value:Date }[]>([]);
-  timezones = [
-    'UTC',
-  ];
 
   ngOnInit(): void {
-    const timezones = Intl.supportedValuesOf('timeZone');
-    this.timezones.push(...timezones);
-    
-    setInterval(() => {
-      this.updateTime()
-    }, 1000);
-    this.updateTime();
     this.changeLightMode()
   }
 
-  updateTime() {
-    this.myTime.set(new Date());
-    this.myTimezone.set(Intl.DateTimeFormat().resolvedOptions().timeZone);
-    this.locatedTimes.set(this.getLocatedTimes());
-  }
-
-  getLocatedTimes(): {timezone: string, value: Date }[] {
-    const times: {timezone: string, value: Date }[] = [];
-    for (const timezone of this.timezones) {
-      times.push({ timezone, value: this.getLocatedTime(timezone) });
-    }
-    return times;
-  }
-
-  getLocatedTime(timezone: string): Date {
-    const time = this.myTime();
-    const locatedTime = new Date(time.toLocaleString('en-US', { timeZone: timezone }));
-    return locatedTime;
-  }
 
   changeLightMode() {
     if (typeof document === 'undefined') return;

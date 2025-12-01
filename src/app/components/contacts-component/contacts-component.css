@@ -1,0 +1,20 @@
+.links{
+  display: flex;
+  gap: 10px;
+}
+
+.links a{
+  padding: 0.5rem 1rem;
+  background-color: #4949493a;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.links a svg, .links a img{
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}

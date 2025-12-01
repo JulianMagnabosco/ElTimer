@@ -1,0 +1,30 @@
+
+
+  <div class="container">
+    <p>
+      It is currently:
+    </p>
+    <h1>
+      {{myTime() | date:'yyyy MMM dd, HH:mm:ss'}}
+    </h1>
+    <p >
+      Since you are in <span class="bold">{{myTimezone() | timezone}}</span>.
+    </p>
+    <div class="table-container">
+      <table>
+      <thead>
+        <tr>
+          <th>Timezone</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>@for (locatedTime of locatedTimes(); track $index) {
+        <tr>
+          <td>{{locatedTime.timezone | timezone}}</td>
+          <td>{{locatedTime.value | date:'yyyy MMM dd, HH:mm:ss'}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    </div>
+  </div>
